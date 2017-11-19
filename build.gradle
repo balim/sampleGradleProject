@@ -2,6 +2,8 @@ apply plugin: 'java'
 apply plugin: 'application'
 apply plugin: 'maven'
 
+allprojects{
+
 repositories {
     mavenCentral()
 }
@@ -50,4 +52,6 @@ uploadArchives {
              pom.groupId = "com.example"
        }
     }
+}
+
 }
