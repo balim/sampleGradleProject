@@ -4,6 +4,11 @@ apply plugin: 'application'
 repositories {
     mavenCentral()
 }
+repositories {
+    maven {
+          url "http://localhost:8081/nexus/content/groups/public"
+    }
+}
 
 sourceSets {
     main {
@@ -31,7 +36,20 @@ test {
 
 // create Gradle wrapper with command line `gradle wrapper` in terminal
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    gradleVersion = '4.2.1'
 }
 
 mainClassName = "Main" // Main.java is located in src/main/java/Main.java
+
+uploadArchives {
+    repositories {
+       mavenDeployer {
+             repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
+             authentication(userName: "admin", password: "admin123")
+}
+             pom.version = "1.0-SNAPSHOT"
+             pom.artifactId = "simple-project"
+             pom.groupId = "com.example"
+       }
+    }
+}
