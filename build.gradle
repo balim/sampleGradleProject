@@ -42,7 +42,7 @@ uploadArchives {
     repositories {
        mavenDeployer {
 		repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
-		repositoryUrl = 'http://localhost:8081/nexus/content/repositories/releases/'
+		repository(url: "http://localhost:8081/nexus/content/repositories/releases")
 		authentication(userName: "admin", password: "admin123")
 }
              pom.version = "1.0-SNAPSHOT"
