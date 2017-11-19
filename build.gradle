@@ -41,7 +41,7 @@ task wrapper(type: Wrapper) {
 
 mainClassName = "Main" // Main.java is located in src/main/java/Main.java
 
-uploadArchives {
+project.uploadArchives {
     repositories {
        mavenDeployer {
              repository(url: "http://localhost:8081/nexus/content/repositories/snapshots") {
